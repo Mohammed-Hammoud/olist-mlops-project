@@ -1,0 +1,9 @@
+paths:
+  model_path: "ml_artifacts/best_model.pkl"
+  scaler_path: "ml_artifacts/scaler.pkl"
+  imputer_path: "ml_artifacts/imputer.pkl"
+  encoder_path: "ml_artifacts/state_risk_encoder.pkl"
+  features_path: "ml_artifacts/feature_list.json"
+
+model_params:
+  target_column: "is_late"

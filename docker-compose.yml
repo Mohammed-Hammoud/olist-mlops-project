@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ml_artifacts:/app/ml_artifacts
+      - ./config:/app/config
+    environment:
+      - CONFIG_PATH=config/config.yaml
