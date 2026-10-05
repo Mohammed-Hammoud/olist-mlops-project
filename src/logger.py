@@ -1,29 +1,31 @@
 import logging
 import os
-import sys
 
-def setup_logger(name="olist_mlops"):
+def setup_logger(name: str, log_file: str = "logs/app.log", level=logging.INFO):
+    # إنشاء مجلد السجلات بأمان دون تعقيد
+    os.makedirs("logs", exist_ok=True)
+
     logger = logging.getLogger(name)
-    logger.setLevel(logging.INFO)
-    
-    # منع تكرار الـ handlers إذا تم استدعاء الlogger أكثر من مرة
+    logger.setLevel(level)
+
+    # منع تكرار الـ Handlers إذا تم استدعاء الـ logger أكثر من مرة
     if not logger.handlers:
-        # 1. إنشاء مجلد للسجلات إذا لم يكن موجوداً
-        os.makedirs("logs", exist_ok.is_dir() if hasattr(os.makedirs, 'is_dir') else os.makedirs("logs", exist_ok=True))
-        
-        # تنسيق السجلات (Timestamp - Level - Name - Message)
+        # File Handler
+        fh = logging.FileHandler(log_file, encoding="utf-8")
+        fh.setLevel(level)
+
+        # Stream Handler (Console)
+        ch = logging.StreamHandler()
+        ch.setLevel(level)
+
+        # Formatter
         formatter = logging.Formatter(
-            '%(asctime)s - [%(levelname)s] - %(name)s - %(message)s'
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
-        
-        # أ. إرسال السجلات إلى الـ Console (الشاشة)
-        console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setFormatter(formatter)
-        logger.addHandler(console_handler)
-        
-        # ب. إرسال السجلات إلى ملف (File Handler)
-        file_handler = logging.FileHandler("logs/app.log", encoding="utf-8")
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
-        
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+
+        logger.addHandler(fh)
+        logger.addHandler(ch)
+
     return logger

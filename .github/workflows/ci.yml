@@ -1,0 +1,36 @@
+name: Olist MLOps CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test-and-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. سحب الكود من المستودع
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # 2. إعداد بيئة بايثون
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    # 3. تثبيت أداة التثبيت السريع uv
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
+
+    # 4. تثبيت الحزم المطلوبة للاختبار والتشغيل
+    - name: Install Dependencies
+      run: |
+        uv pip install --system pytest httpx fastapi uvicorn pandas numpy scikit-learn==1.5.1 joblib pydantic
+
+    # 5. تشغيل الاختبارات الآلية عبر Pytest
+    - name: Run Pytest Suite
+      run: |
+        python -m pytest

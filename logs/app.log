@@ -1,0 +1,10 @@
+2026-10-05 19:59:36,260 - predictor - INFO - تم تحميل النموذج بنجاح من المسار: ml_artifacts/best_model.pkl
+2026-10-05 19:59:36,600 - predictor - ERROR - حدث خطأ أثناء عملية التنبؤ للمدخلات {'order_purchase_timestamp': '2018-01-01 10:00:00', 'customer_state': 'SP', 'total_items': 1.0, 'total_price': 75.0, 'total_freight': 15.0, 'total_payment_value': 90.0, 'payment_installments_count': 1.0}: 'SimpleImputer' object has no attribute '_fill_dtype'
+2026-10-05 19:59:36,601 - api - ERROR - فشل معالجة الطلب: 'SimpleImputer' object has no attribute '_fill_dtype'
+2026-10-05 20:02:22,862 - predictor - INFO - تم تحميل النموذج بنجاح من المسار: ml_artifacts/best_model.pkl
+2026-10-05 20:02:23,437 - predictor - ERROR - حدث خطأ أثناء عملية التنبؤ للمدخلات {'order_purchase_timestamp': '2018-01-01 10:00:00', 'customer_state': 'SP', 'total_items': 1.0, 'total_price': 75.0, 'total_freight': 15.0, 'total_payment_value': 90.0, 'payment_installments_count': 1.0}: 'SimpleImputer' object has no attribute '_fill_dtype'
+2026-10-05 20:02:23,438 - api - ERROR - فشل معالجة الطلب: 'SimpleImputer' object has no attribute '_fill_dtype'
+2026-10-05 20:03:44,946 - predictor - INFO - تم تحميل النموذج بنجاح من المسار: ml_artifacts/best_model.pkl
+2026-10-05 20:04:43,300 - predictor - INFO - تم تحميل النموذج بنجاح من المسار: ml_artifacts/best_model.pkl
+2026-10-05 20:04:43,645 - predictor - INFO - طلب تنبؤ ناجح | المدخلات: {'order_purchase_timestamp': '2018-01-01 10:00:00', 'customer_state': 'SP', 'total_items': 1.0, 'total_price': 75.0, 'total_freight': 15.0, 'total_payment_value': 90.0, 'payment_installments_count': 1.0} | النتيجة: {'is_late': 0, 'probability': 0.3399093800455401, 'model_version': 'v1.0.0'}
+2026-10-05 20:04:43,645 - api - INFO - نجاح الطلب | زمن الاستجابة: 297.40ms | النتيجة: {'is_late': 0, 'probability': 0.3399093800455401, 'model_version': 'v1.0.0'}
