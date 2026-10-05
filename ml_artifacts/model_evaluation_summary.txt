@@ -1,8 +1,0 @@
-
-# Model Training & Evaluation Summary Report
-- Model Type: Random Forest Classifier
-- Training Rows: 67530
-- Validation Rows: 14474
-- Evaluation Metrics (Validation Set):
-  * ROC-AUC Score: 0.7238
-  * F1-Score: 0.2910
